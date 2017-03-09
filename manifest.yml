@@ -1,0 +1,16 @@
+---
+applications:
+- name: hello
+  memory: 128M
+  instances: 1
+  disk_quota: 1024M
+  timeout: 180
+  random-route: true
+  buildpack: sdk-for-nodejs
+  command: npm start
+  services:
+  - hello-autoScaling
+  declared-services:
+    hello-autoScaling:
+      label: Auto-scaling
+      plan: free
